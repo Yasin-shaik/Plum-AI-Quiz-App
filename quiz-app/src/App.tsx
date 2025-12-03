@@ -1,47 +1,33 @@
-
-// Import the Context Provider and Hook
-// NOTE: Assuming capitalized folder names as you specified: './Context/QuizContext'
 import { QuizProvider, useQuiz } from './Context/QuizContext';
-
-// Import all Screen Components
 import { TopicSelection } from './Screens/TopicSelection';
 import { LoadingScreen } from './Screens/LoadingScreen';
 import { QuizGame } from './Screens/QuizGame';
 import { ResultScreen } from './Screens/ResultScreen';
+import { Moon, Sun } from 'lucide-react';
 
-
-/**
- * QuizContent is the main component that uses the context state
- * to determine which screen (MENU, LOADING, QUIZ, RESULT) to display.
- */
 const QuizContent = () => {
-  // Use the hook to access the global state
-  const { appState } = useQuiz();
+  const { appState, theme, toggleTheme } = useQuiz();
 
-  // The main router logic that displays the correct screen based on the application state
   return (
-    // Set a consistent layout and background for the entire application
-    <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-4 font-sans text-slate-800">
-      
-      {/* SCREEN 1: Topic Selection (appState: 'MENU') */}
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex flex-col items-center justify-center p-4 font-sans text-slate-800 dark:text-slate-200 transition-colors duration-300">
+      <div className="absolute top-4 right-4 md:top-6 md:right-6 z-10">
+        <button
+          onClick={toggleTheme}
+          className="p-3 rounded-full bg-white dark:bg-slate-800 shadow-md border border-slate-200 dark:border-slate-700 hover:scale-110 transition-transform text-indigo-600 dark:text-yellow-400"
+          aria-label="Toggle Dark Mode"
+          title="Toggle Dark Mode"
+        >
+          {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+        </button>
+      </div>
       {appState === 'MENU' && <TopicSelection />}
-
-      {/* SCREEN 2: Loading & AI Generation (appState: 'LOADING') */}
       {appState === 'LOADING' && <LoadingScreen />}
-
-      {/* SCREEN 3: Quiz Gameplay (appState: 'QUIZ') */}
       {appState === 'QUIZ' && <QuizGame />}
-
-      {/* SCREEN 4: Results and AI Feedback (appState: 'RESULT') */}
       {appState === 'RESULT' && <ResultScreen />}
     </div>
   );
 };
 
-/**
- * The default export wraps the entire application logic in the QuizProvider.
- * This makes the global state available to all child components.
- */
 export default function App() {
   return (
     <QuizProvider>

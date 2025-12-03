@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, type ReactNode } from 'react';
-
+import { useEffect } from 'react';
 // 1. Define the shape of a single Question
 export interface Question {
   id: number;
@@ -32,6 +32,8 @@ interface QuizContextType {
   setIsFeedbackLoading: React.Dispatch<React.SetStateAction<boolean>>; // <--- ADDED THIS
   
   resetQuiz: () => void;
+  theme: 'light' | 'dark';
+  toggleTheme: () => void;
 }
 
 // 3. Create the Context
@@ -49,6 +51,27 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
   
   const [feedback, setFeedback] = useState<string>('');
   const [isFeedbackLoading, setIsFeedbackLoading] = useState<boolean>(false); // <--- ADDED THIS
+
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window !== 'undefined') {
+      return (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
+    }
+    return 'light';
+  });
+
+  useEffect(() => {
+    const root = window.document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
+    }
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === 'light' ? 'dark' : 'light'));
+  };
 
   // Helper function to reset everything when starting over
   const resetQuiz = () => {
@@ -74,7 +97,8 @@ export const QuizProvider = ({ children }: { children: ReactNode }) => {
       error, setError,
       feedback, setFeedback,
       isFeedbackLoading, setIsFeedbackLoading, // <--- ADDED THIS
-      resetQuiz
+      resetQuiz,
+      theme, toggleTheme
     }}>
       {children}
     </QuizContext.Provider>

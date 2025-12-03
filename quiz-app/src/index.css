@@ -2,43 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Add this custom background style */
-body {
-  background-color: #f8fafc; /* Slate-50 fallback */
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
-    radial-gradient(at 50% 0%, hsla(225,39%,30%,1) 0, transparent 50%), 
-    radial-gradient(at 100% 0%, hsla(339,49%,30%,1) 0, transparent 50%);
-  background-attachment: fixed; /* Keeps background still while scrolling */
-  background-size: cover;
-  min-height: 100vh;
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
 }
 
-/* Optional: Make text simpler to read on dark/complex backgrounds if you choose one, 
-   but for the code above, we essentially created a "Dark Mode" vibe. 
-   
-   If you prefer the LIGHT theme we built, use this subtle one instead: */
-
-body.light-theme-default { 
-  background-color: #f8fafc;
-  background-image: radial-gradient(#e0e7ff 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-/* ```
-
-**Recommendation:** Since our components are designed with white cards (`bg-white`), they pop nicely against a light gray or subtle blue background. If you used the gradient above (which is dark), you might need to change your text colors.
-
-**Safe Bet (Light Mode Polish):**
-Instead of the complex dark gradient above, strictly use this **Dot Pattern** in `src/index.css`. It looks very clean and "Tech-focused":
-
-```css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 body {
-  background-color: #f8fafc; /* Slate 50 */
-  /* Creates a subtle grid of dots */
+  background-color: #f8fafc; 
+  color: #1e293b; 
   background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-  background-size: 32px 32px; /* Spacing of dots */
+  background-size: 32px 32px;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.dark body {
+  background-color: #0f172a; 
+  color: #e2e8f0;
+  background-image: radial-gradient(#1e293b 1px, transparent 1px);
 }

@@ -57,11 +57,11 @@ export const TopicSelection = () => {
         </span>
       </div>
 
-      <div className="bg-white dark:bg-slate-800 p-2 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center">
+      <div className="bg-white dark:bg-slate-800 p-2 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row gap-2">
         <input
           type="text"
-          placeholder="e.g., 'Quantum Physics', '90s Pop Music'..."
-          className="flex-1 p-4 bg-transparent outline-none text-slate-800 dark:text-white placeholder:text-slate-400 font-medium"
+          placeholder="e.g., 'Quantum Physics'..."
+          className="w-full sm:flex-1 p-4 bg-transparent outline-none text-slate-800 dark:text-white placeholder:text-slate-400 font-medium"
           value={customTopic}
           onChange={(e) => setCustomTopic(e.target.value)}
           onKeyDown={(e) => e.key === 'Enter' && customTopic.trim() && handleSelect(customTopic)}
@@ -69,7 +69,7 @@ export const TopicSelection = () => {
         <button
           onClick={() => handleSelect(customTopic)}
           disabled={!customTopic.trim()}
-          className="bg-indigo-600 text-white p-4 rounded-xl hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center gap-2 font-bold"
+          className="w-full sm:w-auto bg-indigo-600 text-white p-4 rounded-xl hover:bg-indigo-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-2 font-bold"
         >
           Start Quiz <ArrowRight className="w-5 h-5" />
         </button>

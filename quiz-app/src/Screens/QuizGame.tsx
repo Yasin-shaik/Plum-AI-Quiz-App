@@ -83,14 +83,14 @@ export const QuizGame = () => {
           <button
             onClick={handlePrev}
             disabled={currentQuestionIndex === 0}
-            className={`flex items-center text-slate-500 dark:text-slate-400 font-medium hover:text-indigo-600 dark:hover:text-indigo-400 disabled:opacity-30 disabled:hover:text-slate-500 dark:disabled:hover:text-slate-400 transition-colors`}
+            className={`w-full sm:w-auto justify-center flex items-center text-slate-500 dark:text-slate-400 font-medium hover:text-indigo-600 dark:hover:text-indigo-400 disabled:opacity-30 disabled:hover:text-slate-500 dark:disabled:hover:text-slate-400 transition-colors p-3`}
           >
             <ChevronLeft className="w-5 h-5 mr-1" /> Previous
           </button>
           <button
             onClick={handleNext}
-            disabled={!isAnswered}
-            className="flex items-center bg-indigo-600 dark:bg-indigo-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-200 dark:shadow-none"
+            disabled={!isAnswered} 
+            className="w-full sm:w-auto justify-center flex items-center bg-indigo-600 dark:bg-indigo-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-indigo-200 dark:shadow-none"
           >
             {isLastQuestion ? 'Finish Quiz' : 'Next Question'}
             {!isLastQuestion && <ChevronRight className="w-5 h-5 ml-2" />}

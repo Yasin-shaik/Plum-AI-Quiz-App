@@ -4,7 +4,13 @@ A dynamic, AI-powered quiz application built with **React**, **TypeScript**, and
 
 ---
 
-## 1. Project Setup & Demo
+### Demo
+- **Screen Recording:** *(Insert Loom/YouTube link showing flow: Topic Selection → Loading → Quiz → Results → Dark Mode)*  
+- **Hosted Demo:** *[Plum_AI_Quiz_App](https://plum-ai-quiz-app.vercel.app/)*
+
+---
+
+## 1. Project Setup in local
 
 ### Web Setup  
 To run this project locally:
@@ -28,12 +34,6 @@ npm run dev
 #### Open in Browser:
 Navigate to:  
 `http://localhost:5173/` *(or the URL shown in your terminal)*
-
----
-
-### Demo
-- **Screen Recording:** *(Insert Loom/YouTube link showing flow: Topic Selection → Loading → Quiz → Results → Dark Mode)*  
-- **Hosted Demo:** *(Optional: Vercel/Netlify link)*
 
 ---
 

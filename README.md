@@ -5,7 +5,7 @@ A dynamic, AI-powered quiz application built with **React**, **TypeScript**, and
 ---
 
 ### Demo
-- **Screen Recording:** *(Insert Loom/YouTube link showing flow: Topic Selection → Loading → Quiz → Results → Dark Mode)*  
+- **Screen Recording:** *[Demo_Video](https://drive.google.com/file/d/1ER4t9E_HQcbYHesQSWERfdBqh8LSIZTT/view?usp=sharing)*  
 - **Hosted Demo:** *[Plum_AI_Quiz_App](https://plum-ai-quiz-app.vercel.app/)*
 
 ---
